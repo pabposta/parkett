@@ -1,0 +1,16 @@
+// Place all the styles related to the UserTradingSignals controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.st-signal-chart-container {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+
+  .st-signal-chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
