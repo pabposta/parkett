@@ -1,6 +1,23 @@
 // Place all the styles related to the UserTradingSignals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  padding-top: 81px;
+}
+
+.show-xs-or-smaller {
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.show-sm-or-larger {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
 .st-signal-chart-container {
   width: 100%;
   padding-top: 100%;
@@ -12,5 +29,60 @@
     left: 0;
     bottom: 0;
     right: 0;
+  }
+}
+
+.next-date-container {
+  @media (min-width: 768px) {
+    .well {
+      position: absolute;
+      align-items: center;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      border-radius: 0;
+    }
+  }
+}
+
+.messages {
+  text-align: center;
+  padding-top: 50%;
+
+  &.bottom {
+    padding-top: 0;
+  }
+
+  div {
+    margin: auto;
+  }
+}
+
+.spinner {
+    animation: spin 1000ms infinite linear;
+    font-size: 64px;
+}
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+.authentication-page {
+  .input-group {
+    width: 100%;
+    margin-bottom: 20px;
+
+    .form-control {
+      border-radius: 4px;
+    }
   }
 }

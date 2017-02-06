@@ -1,0 +1,36 @@
+.row
+  %div{ "ng-repeat": "signalWithContainerId in signalsWithContainerIds" }
+    .col-lg-4.col-sm-6{ "ng-if": "dateChangesByContainerId[signalWithContainerId.containerId]" }
+      .col-sm-10.col-sm-offset-1
+        .next-date-container.show-xs-or-smaller
+          .div.well.well-lg.text-center
+            {{ dateChangesByContainerId[signalWithContainerId.containerId] }}
+        .next-date-container.row.show-sm-or-larger
+          .thumbnail
+            .st-signal-chart-container
+              .div.well.well-lg.text-center
+                .div
+                  {{ dateChangesByContainerId[signalWithContainerId.containerId] }}
+    .col-lg-4.col-sm-6
+      .col-sm-10.col-sm-offset-1
+        .row
+          .thumbnail
+            .st-signal-chart-container
+              .st-signal-chart{ id: "{{ signalWithContainerId.containerId }}" }
+  .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2
+    .messages{ "ng-class": "{ bottom: page > 1 }", "ng-show": "loading || error || noSignals || noMoreSignals "}
+      %div{ "ng-show": "loading" }
+        %span.glyphicon.glyphicon-refresh.spinner{ "aria-hidden": "true" }
+      %div.alert.alert-danger{ "ng-show": "error" }
+        Error: {{ error.statusText }}
+      %div.alert.alert-warning{ "ng-show": "noSignals" }
+        %div
+          No signals liked yet
+        %div
+          %a{ href: "#!/index" }
+            %strong.alert-warning
+              %u Pick some signals
+    %div{ "ng-hide": "loading || noMoreSignals" }
+      %button.btn.btn-success.btn-lg.btn-block.center-block{ "ng-click": "loadNextPage()" }
+        %span{ "ng-hide": "error" } Load more
+        %span{ "ng-show": "error" } Try again

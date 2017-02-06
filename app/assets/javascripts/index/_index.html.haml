@@ -1,0 +1,25 @@
+%div
+  .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2
+    .row
+      .messages{ "ng-show": "loading || error || noSignals "}
+        %div{ "ng-show": "loading" }
+          %span.glyphicon.glyphicon-refresh.spinner{ "aria-hidden": "true" }
+        %div.alert.alert-danger{ "ng-show": "error" }
+          Error: {{ error.statusText }}
+        %div.alert.alert-success{ "ng-show": "noSignals" }
+          %div No more signals
+          %div
+            %a{ href: "#!/liked" }
+              %strong.alert-success
+                %u See the signals you liked
+      .thumbnails{ "ng-show": "signal" }
+        .st-signal-chart-container
+          #st-signal-chart.st-signal-chart{ "ng-show": "signal" }
+        .caption
+          .row
+            .col-xs-6
+              %button.btn.btn-success.btn-lg.btn-block.center-block{ "ng-click": "like()" }
+                %span.glyphicon.glyphicon-thumbs-up{ "aria-hidden": "true" }
+            .col-xs-6
+              %button.btn.btn-danger.btn-lg.btn-block.center-block{ "ng-click": "discard()" }
+                %span.glyphicon.glyphicon-thumbs-down{ "aria-hidden": "true" }

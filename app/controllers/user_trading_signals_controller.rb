@@ -1,12 +1,15 @@
 class UserTradingSignalsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @user_trading_signal = UserTradingSignal.find_by(seen_at: nil, user: current_user)
+  def next
+    respond_with UserTradingSignal.find_by(seen_at: nil, user: current_user)
   end
 
   def liked
-    @user_trading_signals = UserTradingSignal.where(user: current_user, :liked_at.ne => nil, :liked_at.exists => true).order_by(liked_at: :desc)
+    page = params.require(:page)
+    signals = UserTradingSignal.where(user: current_user, :liked_at.ne => nil, :liked_at.exists => true).order_by(liked_at: :desc).page(page).per(10)
+    response = { signals: signals, last_page: signals.last_page? }
+    respond_with response
   end
 
   def like
@@ -17,7 +20,6 @@ class UserTradingSignalsController < ApplicationController
     end
     @user_trading_signal.unset(:discarded_at)
     @user_trading_signal.save
-    redirect_to user_trading_signals_index_path
   end
 
   def discard
@@ -28,6 +30,5 @@ class UserTradingSignalsController < ApplicationController
     end
     @user_trading_signal.unset(:liked_at)
     @user_trading_signal.save
-    redirect_to user_trading_signals_index_path
   end
 end

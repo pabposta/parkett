@@ -1,0 +1,13 @@
+%html
+  %head
+    %title parkett
+    = csrf_meta_tags
+
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    %script{ type: "text/javascript", src: "https://d33t3vvu2t2yu5.cloudfront.net/tv.js" }
+
+  %body.ng-cloak{ "ng-app": "parkett" }
+    %div{ "ng-include": "'nav/_nav.html'" }
+    .container
+      %ui-view

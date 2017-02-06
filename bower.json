@@ -1,0 +1,24 @@
+{
+  "name": "parkett",
+  "homepage": "https://github.com/pabposta/parkett",
+  "authors": [
+    "Pablo Poveda <pabposta@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.6.1",
+    "angular-ui-router": "~1.0.0",
+    "bootstrap": "~3.3.7",
+    "AngularDevise": "angular-devise#~1.3.0"
+  }
+}

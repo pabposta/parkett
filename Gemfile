@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
-#gem 'sqlite3'
+gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -32,9 +32,14 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'mongoid', '~> 6.0.0'
 gem 'bson_ext'
+gem 'angular_rails_csrf'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'rails_bootstrap_navbar'
+gem 'angular-rails-templates'
+gem 'kaminari-mongoid'
+gem 'haml'
+gem 'bootswatch-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

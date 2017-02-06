@@ -11,7 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootswatch/flatly/variables";
+@import "bootstrap";
+@import "bootswatch/flatly/bootswatch";
 
 @import "user_trading_signals.scss"
