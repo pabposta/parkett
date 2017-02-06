@@ -152,7 +152,7 @@ production:
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - ds159507.mlab.com:59507/parkett
+        - ds145039.mlab.com:45039/parkett
       options:
         user: 'parkett'
         password: 's45l98NT1RWf1F6Ldzh1'
